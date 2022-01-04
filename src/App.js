@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Mobiles from "./Components/Mobiles";
+import Eshop from "./Components/E-shop";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Nav from "./Components/Nav";
+import Movies from "./Components/Movies";
+// import { Provider } from "react-redux";
+// import { ConfigStore } from "./State/ConfigStore";
 
 function App() {
+  // const LocalStore = ConfigStore;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Provider store={LocalStore}> */}
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Mobiles />} />
+          <Route path="/Eshop" element={<Eshop />} />
+          <Route path="/movies" element={<Movies />} />
+        </Routes>
+      </BrowserRouter>
+      {/* </Provider> */}
+
+      {/* <Mobiles /> */}
+      {/* <Eshop /> */}
     </div>
   );
 }
